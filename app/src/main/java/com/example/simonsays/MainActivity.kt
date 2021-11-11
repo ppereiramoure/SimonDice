@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity(){
-    val contadorRonda = 1
+    var contadorRonda = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +47,40 @@ class MainActivity : AppCompatActivity(){
             Log.d("Estado", "Jugar")
         }
 
+        comprobarSecuencia.setOnClickListener {
+            Log.d("Estado", "Comprobar secuencia")
+            contadorRonda++
+            if (finalizado == false) {
+                if (corrector(juego, jugador)) {
+                    Log.d("Estado", "Ronda acertada")
+                    añadirSecuencia(juego)
+                    jugador.clear()
+                    empezarSecuencia(juego, listaBotones)
+                    visualizarRonda()
+                } else {
+                    finalizado = true
+                    toast.show()
+                    contadorRonda = 0
+                    val bot: Button = findViewById(R.id.BotonJugar)
+                    bot.visibility = View.VISIBLE
+                    Log.d("Estado", "GAME OVER")
+                }
+            }
+
+        }
+
+        azul.setOnClickListener {
+            secuenciaUsuario(jugador, 1)
+        }
+        amarillo.setOnClickListener {
+            secuenciaUsuario(jugador, 2)
+        }
+        rojo.setOnClickListener {
+            secuenciaUsuario(jugador, 3)
+        }
+        verde.setOnClickListener {
+            secuenciaUsuario(jugador, 4)
+        }
 
         }
 
@@ -72,6 +106,10 @@ class MainActivity : AppCompatActivity(){
         Log.d("Estado", "Hacer comprobacion")
     }
 
+    fun secuenciaUsuario(secUsr: MutableList<Int>, color: Int) {
+        secUsr.add(color)
+        Log.d("Estado", "Secuencia usuario")
+    }
 
     fun empezarSecuencia(sec: MutableList<Int>, listaBotones: List<Button>) {
         Log.d("Estado", "Ejecutar")
@@ -81,7 +119,7 @@ class MainActivity : AppCompatActivity(){
                 delay(350)
 
                 listaBotones[color - 1].backgroundTintList =
-                    ColorStateList.valueOf(Color.parseColor("#F5F1F1"))
+                    ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
                 Log.d("Estado", "Blancor")
                 delay(800)
                 when (color) {
