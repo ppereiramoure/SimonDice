@@ -40,9 +40,19 @@ class MainActivity : AppCompatActivity(){
         findViewById<TextView>(R.id.Texto).text = contadorRonda.toString()
     }
 
-
-
+    fun añadirSecuencia(sec: MutableList<Int>) {
+        val numb = (1..4).random()
+        sec.add(numb)
+        Log.d("Estado", "Generar secuencia")
     }
+
+    fun corrector(sec: MutableList<Int>, secUsr: MutableList<Int>): Boolean {
+        return sec == secUsr
+        Log.d("Estado", "Hacer comprobacion")
+    }
+
+
+}
 
 
 
