@@ -1,11 +1,19 @@
 package com.example.simonsays
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity(){
     val contadorRonda = 1
@@ -23,12 +31,25 @@ class MainActivity : AppCompatActivity(){
         val amarillo = findViewById<Button>(R.id.BotonAmarillo)
         val verde = findViewById<Button>(R.id.BotonVerde)
         val listaBotones = listOf(rojo, verde, amarillo, azul)
-        val toast = Toast.makeText(applicationContext, "GAME OVER", Toast.LENGTH_SHORT)
-        val toast3 = Toast.makeText(applicationContext, "Repite la secuencia", Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(applicationContext, "A la puta", Toast.LENGTH_SHORT)
+        val toast3 = Toast.makeText(applicationContext, "Copiame", Toast.LENGTH_SHORT)
         val bot: Button = findViewById(R.id.BotonJugar)
         Log.d("Estado", "onCreate")
 
+        jugar.setOnClickListener {
+            finalizado = false
+            reset(juego, jugador)
+            añadirSecuencia(juego)
+            empezarSecuencia(juego, listaBotones)
+            toast3.show()
+            visualizarRonda()
+            bot.visibility = View.INVISIBLE
+            Log.d("Estado", "Jugar")
         }
+
+
+        }
+
 
     fun reset(sec: MutableList<Int>, secUsr: MutableList<Int>) {
         sec.clear()
@@ -52,6 +73,34 @@ class MainActivity : AppCompatActivity(){
     }
 
 
+    fun empezarSecuencia(sec: MutableList<Int>, listaBotones: List<Button>) {
+        Log.d("Estado", "Ejecutar")
+        CoroutineScope(Dispatchers.Main).launch {
+            Log.d("Estado", "Ejecutar corrutina")
+            for (color in sec) {
+                delay(350)
+
+                listaBotones[color - 1].backgroundTintList =
+                    ColorStateList.valueOf(Color.parseColor("#F5F1F1"))
+                Log.d("Estado", "Blancor")
+                delay(800)
+                when (color) {
+                    1 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("blue"))
+                    2 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("yellow"))
+                    3 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("red"))
+                    4 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("green"))
+                }
+            }
+            var t = Toast.makeText(applicationContext, "Repitir", Toast.LENGTH_SHORT)
+            t.show()
+            Log.d("Estado", "Repitir")
+
+        }
+    }
 }
 
 
