@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2C2A2A"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/BotonAmarillo"
+        android:layout_width="133dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#FFEB3B"
+        android:text="Amarillo"
+        app:layout_constraintBaseline_toBaselineOf="@+id/BotonAzul"
+        app:layout_constraintEnd_toStartOf="@+id/BotonAzul"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BotonVerde"
+        android:layout_width="116dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="35dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Verde"
+        app:icon="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toTopOf="@+id/BotonAzul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BotonRojo"
+        app:layout_constraintTop_toBottomOf="@+id/Texto" />
+
+    <Button
+        android:id="@+id/BotonAzul"
+        android:layout_width="116dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="94dp"
+        android:background="#3F51B5"
+        android:backgroundTint="#3F51B5"
+        android:text="Azul"
+        app:icon="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/BotonJugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BotonAmarillo"
+        app:layout_constraintTop_toBottomOf="@+id/BotonVerde" />
+
+    <Button
+        android:id="@+id/BotonRojo"
+        android:layout_width="0dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#CA2323"
+        android:text="Rojo"
+        app:icon="@color/design_default_color_error"
+        app:layout_constraintBaseline_toBaselineOf="@+id/BotonVerde"
+        app:layout_constraintEnd_toStartOf="@+id/BotonVerde"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BotonJugar"
+        android:layout_width="125dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="205dp"
+        android:backgroundTint="#CB69DC"
+        android:text="Jugar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BotonAzul" />
+
+    <TextView
+        android:id="@+id/Texto"
+        android:layout_width="131dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="100dp"
+        android:text="Simon Dice"
+        app:layout_constraintBottom_toTopOf="@+id/BotonVerde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BotonCorroborar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Corroborar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BotonJugar"
+        app:layout_constraintVertical_bias="0.484" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
