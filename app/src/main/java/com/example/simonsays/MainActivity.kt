@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity(){
-    val contadorRonda: Int=0
+    val contadorRonda = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,31 +30,22 @@ class MainActivity : AppCompatActivity(){
 
         }
 
-    }
-    private fun Comenzar(){
-        Log.i ("Estado" , "Empieza la partida")
-        val mostrarRonda: TextView = findViewById(R.id.Texto)
-        mostrarRonda.text = contadorRonda.toString()
-
+    fun reset(sec: MutableList<Int>, secUsr: MutableList<Int>) {
+        sec.clear()
+        secUsr.clear()
+        Log.d("Estado", "Reset del juego")
     }
 
-    fun ejecutarSecuencia(){
-        Log.i ("Estado" , "Empieza la partida")
+    fun visualizarRonda(){
+        findViewById<TextView>(R.id.Texto).text = contadorRonda.toString()
     }
 
-    fun añadirSecuencia(){
 
-    }
-
-    fun mostrarRonda(){
-
-    }
-
-    fun checkSecuencia(){
 
     }
 
 
 
 
-}
+
+
