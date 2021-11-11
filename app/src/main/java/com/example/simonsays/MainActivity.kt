@@ -69,16 +69,16 @@ class MainActivity : AppCompatActivity(){
 
         }
 
-        azul.setOnClickListener {
+        rojo.setOnClickListener {
             secuenciaUsuario(jugador, 1)
         }
-        amarillo.setOnClickListener {
+        verde.setOnClickListener {
             secuenciaUsuario(jugador, 2)
         }
-        rojo.setOnClickListener {
+        amarillo.setOnClickListener {
             secuenciaUsuario(jugador, 3)
         }
-        verde.setOnClickListener {
+        azul.setOnClickListener {
             secuenciaUsuario(jugador, 4)
         }
 
@@ -124,13 +124,13 @@ class MainActivity : AppCompatActivity(){
                 delay(800)
                 when (color) {
                     1 -> listaBotones[color - 1].backgroundTintList =
-                        ColorStateList.valueOf(Color.parseColor("blue"))
-                    2 -> listaBotones[color - 1].backgroundTintList =
-                        ColorStateList.valueOf(Color.parseColor("yellow"))
-                    3 -> listaBotones[color - 1].backgroundTintList =
                         ColorStateList.valueOf(Color.parseColor("red"))
-                    4 -> listaBotones[color - 1].backgroundTintList =
+                    2 -> listaBotones[color - 1].backgroundTintList =
                         ColorStateList.valueOf(Color.parseColor("green"))
+                    3 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("yellow"))
+                    4 -> listaBotones[color - 1].backgroundTintList =
+                        ColorStateList.valueOf(Color.parseColor("blue"))
                 }
             }
             var t = Toast.makeText(applicationContext, "Repitir", Toast.LENGTH_SHORT)
